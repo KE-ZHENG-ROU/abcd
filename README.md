@@ -25,3 +25,4 @@ for (int j = 0;j<10;j++)
 }
 ```
 電路圖如下：
+https://github.com/KE-ZHENG-ROU/abcd/blob/main/177D5621-F04B-464F-B83F-F600F15D653A.jpeg
