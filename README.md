@@ -68,5 +68,5 @@ for(int k=9;k<13;k++)
 }
 ```
 電路圖如下：
-![image](https://github.com/KE-ZHENG-ROU/abcd/blob/main/53CB68D8-C6D7-494C-B492-7D6094992586.jpeg)
+![image](https://github.com/KE-ZHENG-ROU/abcd/blob/main/8D945D99-1530-4FDD-81B1-9291D229645C.jpeg)
 ---------------------------------------------------------------------------------------------------
