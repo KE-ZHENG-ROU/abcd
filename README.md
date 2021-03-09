@@ -114,3 +114,91 @@ void loop() {
 ```
 電路圖如下：
 ![image](https://github.com/KE-ZHENG-ROU/abcd/blob/main/9A5A823A-2A63-4BBB-956D-4363B164B6F6.gif)
+-----------------------------------------------------
+# 2021/03/09 -1
+第四個 LCD右移
+```c++
+#include <LiquidCrystal.h>
+const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
+LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
+void setup() {
+  lcd.begin(16, 2);
+  lcd.print("hey");
+}
+void loop() {
+  delay(3000);
+  lcd.clear();
+  lcd.setCursor(0,1);
+  lcd.print("aaaaaaaaaa");
+  lcd.scrollDisplayRight();
+  lcd.noBlink();
+  delay(3000);
+}
+```
+電路圖如下：
+![image](https://github.com/KE-ZHENG-ROU/abcd/blob/main/1ADDFF83-0BE1-4EB8-AFC6-ABCB45D59A0B.gif)
+------------------------------------------------------
+# 2021/03/09 -2
+第五個 LCD顯示圖形 
+```c++
+byte smiley[8] = {
+  B00000,
+  B10001,
+  B00000,
+  B00000,
+  B10001,
+  B01110,
+  B00000,
+};
+#include <LiquidCrystal.h>
+const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
+LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
+void setup() {
+  lcd.begin(16, 2);
+  lcd.print("moon");
+}
+void loop() {
+  delay(3000);
+  lcd.clear();
+  lcd.setCursor(0,1);
+  lcd.createChar(0, smiley);
+  lcd.setCursor(0,1);
+  lcd.write(byte(0));
+}
+```
+電路圖如下：
+![image](https://github.com/KE-ZHENG-ROU/abcd/blob/main/2B4DD6A1-5E42-4F72-8233-1FCB5BB267B8.gif)
+-----------------------------------------------------------
+# 2021/03/09-3
+第六個 LCD圖形循環顯示
+```c++
+byte smiley[8] = {
+  B00000,
+  B10001,
+  B00000,
+  B00000,
+  B10001,
+  B01110,
+  B00000,
+};
+#include <LiquidCrystal.h>
+const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
+LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
+void setup() {
+  lcd.begin(16, 2);
+  lcd.print("hey!");
+}
+void loop() {
+  delay(3000);
+  lcd.clear();
+  lcd.setCursor(0,1);
+  lcd.createChar(0, smiley);
+  for(int i=0;i<16;i++){
+  delay(100);
+  lcd.setCursor(i,1);
+  lcd.write(byte(0));
+  }
+}
+```
+電路圖如下：
+![image](https://github.com/KE-ZHENG-ROU/abcd/blob/main/8EFF27E0-7B53-408E-B0F1-593E24BCA979.gif)
