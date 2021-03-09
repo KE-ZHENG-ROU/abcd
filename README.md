@@ -70,3 +70,47 @@ for(int k=9;k<13;k++)
 電路圖如下：
 ![image](https://github.com/KE-ZHENG-ROU/abcd/blob/main/8D945D99-1530-4FDD-81B1-9291D229645C.jpeg)
 ---------------------------------------------------------------------------------------------------
+# 2021/03/09
+第三個程式 按鈕控制LCD文字位置
+```c++
+#include <LiquidCrystal.h>
+LiquidCrystal lcd(12,11,5,4,3,2);
+byte smiley[8] = {
+  B00000,
+  B10001,
+  B00000,
+  B00000,
+  B10001,
+  B01110,
+  B00000,
+};
+bool haha=1,haha2=1;
+void setup() {
+  Serial.begin(9600);
+  pinMode(8,1);
+  pinMode(9,1);
+  lcd.begin(16,2);
+  lcd.noCursor();
+  lcd.createChar(0,smiley);
+  lcd.clear();
+  lcd.print("The light");
+}
+void loop() {
+  if(digitalRead(8))
+  {
+    while(digitalRead(8));{delay(20);}
+    lcd.scrollDisplayLeft(); 
+  }
+  
+  if(digitalRead(9))
+  {
+    while(digitalRead(9));{delay(20);}
+    lcd.scrollDisplayRight(); 
+  }
+  Serial.print(digitalRead(8));
+  Serial.print(digitalRead(9));
+  Serial.println(haha);
+}
+```
+電路圖如下：
+![image](https://github.com/KE-ZHENG-ROU/abcd/blob/main/9A5A823A-2A63-4BBB-956D-4363B164B6F6.gif)
