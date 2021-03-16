@@ -168,7 +168,7 @@ void loop() {
 ```
 電路圖如下：
 ![image](https://github.com/KE-ZHENG-ROU/abcd/blob/main/2B4DD6A1-5E42-4F72-8233-1FCB5BB267B8.gif)
------------------------------------------------------------
+------------------------------------------------------------
 # 2021/03/09-3
 第六個 LCD圖形循環顯示
 ```c++
@@ -202,3 +202,21 @@ void loop() {
 ```
 電路圖如下：
 ![image](https://github.com/KE-ZHENG-ROU/abcd/blob/main/8EFF27E0-7B53-408E-B0F1-593E24BCA979.gif)
+------------------------------------------------------------
+# 2021/03/16
+第七個 風扇三段轉速控制
+```c++
+void setup() {
+  pinMode(5,OUTPUT);
+  pinMode(6,OUTPUT);
+}
+void loop() {
+  for(int i=80;i<255;i+=86){
+    analogWrite(5,i);
+    analogWrite(6,0);
+    delay(5000);
+  }
+}
+```
+電路圖如下：
+![image](https://github.com/KE-ZHENG-ROU/abcd/blob/main/82D9BA87-072D-4021-A5C7-DCFECF24475D.gif)
