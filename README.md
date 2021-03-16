@@ -220,3 +220,48 @@ void loop() {
 ```
 電路圖如下：
 ![image](https://github.com/KE-ZHENG-ROU/abcd/blob/main/82D9BA87-072D-4021-A5C7-DCFECF24475D.gif)
+------------------------------------------------------------
+# 2021/03/16 -1
+第八個 按鈕控制風扇轉速大小
+```c++
+int i;
+void setup() {
+  pinMode(5,OUTPUT);
+  pinMode(6,OUTPUT);
+  pinMode(2,INPUT);
+  Serial.begin(9600);
+}
+void motor(int i) {
+  analogWrite(5,i);
+  analogWrite(6,0);
+}
+void loop() {
+  Serial.println(i);
+  if(digitalRead(2)==LOW) {
+    while(digitalRead(2)==LOW);
+    i=i+35;
+  }
+  else if(digitalRead(3)==LOW)  {
+    while(digitalRead(3)==LOW);
+    i=i-35;
+    }
+  else if(digitalRead(4)==LOW){
+    while(digitalRead(4)==LOW);
+    i=90;
+    }
+  else if(digitalRead(7)==LOW){
+    while(digitalRead(7)==LOW);
+    i=0;    
+  }
+  if(i>=255) {
+    i=255;
+  }
+  else if(i<=0) {
+    i = 0;
+  }
+  motor(i);
+}
+```
+電路圖如下：
+![image](https://github.com/KE-ZHENG-ROU/abcd/blob/main/D5F930C2-E416-4C0E-84FA-654DE2FC4638.gif)
+------------------------------------------------------------
